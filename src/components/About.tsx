@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaTrophy, FaRegSmile } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function About() {
   const containerVariants = {
@@ -106,19 +107,18 @@ export default function About() {
             
             <motion.div 
               variants={itemVariants}
-              className="relative aspect-[4/5] bg-gray-100"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+              className="relative aspect-[4/5] bg-gray-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-100/50"></div>
-              <motion.div 
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
-                className="relative w-full h-full overflow-hidden"
-              >
-                <div className="absolute inset-0 flex items-center justify-center text-3xl font-light text-gray-900">
-                  ФОТО
-                </div>
-              </motion.div>
+              <Image
+                src="/images/profile.jpg"
+                alt="Олег Лаврентьев - Ведущий мероприятий"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
             </motion.div>
           </div>
         </motion.div>
